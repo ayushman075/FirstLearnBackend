@@ -22,7 +22,7 @@ app.use(express.static("public"));
 app.use(cookieParser())
 
 
-const port = process.env.PORT||8000;
+const port = process.env.PORT||3005;
 connectDB().then((res)=>
   app.listen(port, () => {
     console.log(`Server listening on port ${port}`);

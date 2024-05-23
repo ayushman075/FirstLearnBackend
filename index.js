@@ -22,6 +22,16 @@ app.use(express.static("public"));
 app.use(cookieParser())
 
 
+//route import 
+import {userRouter} from './src/routes/user.routes.js'
+
+
+//route declaration
+app.use("/api/v1/user",userRouter)
+
+
+
+
 const port = process.env.PORT||3005;
 connectDB().then((res)=>
   app.listen(port, () => {

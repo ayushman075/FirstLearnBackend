@@ -24,13 +24,20 @@ app.use(cookieParser())
 
 //route import 
 import {userRouter} from './src/routes/user.routes.js'
+import { batchRouter } from "./src/routes/batch.routes.js";
+import { subscribeRouter } from "./src/routes/subscribe.routes.js";
+import { materialRouter } from "./src/routes/material.routes.js";
+import { assignmentRouter } from "./src/routes/assignment.route.js";
+import { announcementRouter } from "./src/routes/announcement.route.js";
 
 
 //route declaration
 app.use("/api/v1/user",userRouter)
-
-
-
+app.use("/api/v1/batch",batchRouter)
+app.use("/api/v1/subscribe",subscribeRouter)
+app.use("/api/v1/material",materialRouter)
+app.use("/api/v1/assignment",assignmentRouter)
+app.use("/api/v1/announcement",announcementRouter)
 
 const port = process.env.PORT||3005;
 connectDB().then((res)=>

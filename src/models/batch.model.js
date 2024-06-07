@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import mongoose,{Schema} from "mongoose";
 import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 
@@ -18,19 +19,18 @@ const batchSchema=new Schema(
         },
         description:{
             type:String,
-            
         },
         faculty:{
-            type:Array
-        },
+            type:Array,
+            default:[]
+            },
         classRepresentative:{
-            type:Array
-        },
-        students:{
-            type:Array
-        },
+            type:Array,
+            default:[]
+            },
         attendance:{
-            type:Number
+            type:Array,
+            default:[]
         },
         isActive:{
             type:Boolean,
@@ -38,8 +38,8 @@ const batchSchema=new Schema(
         },
         admin:{
             type:Array,
-            required:true
-        }
+            default:[]
+            }
     },
     {
         timestamps:true

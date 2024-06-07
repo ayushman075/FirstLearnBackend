@@ -2,6 +2,7 @@ import mongoose, {Schema} from "mongoose";
 import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+import { ObjectId } from "mongodb";
 
 const userSchema=new Schema(
     {
@@ -26,11 +27,11 @@ avatar:{
 usertype:{
     type:String,
     required:true,
-    enum:["Faculty","Student","Class Representative","Guest","Admin"]
+    enum:["Faculty","Student","Guest","Admin"]
 },
 rollno:{
     type:Number,
-    required:true,
+
 },
 institute:{
     type:String,
@@ -39,10 +40,10 @@ institute:{
 isPremiumUser:{
     type:Boolean
 },
-batches:{
-    type:Array,
-    default:[]
-},
+batches:[{
+    type:ObjectId,
+    ref: 'Batch'
+    }],
 password:{
     type:String,
     required:[true,"Password is required"]

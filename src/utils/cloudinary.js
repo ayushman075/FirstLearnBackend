@@ -15,7 +15,6 @@ try {
     //upload on cloudinary
     const response = await cloudinary.uploader.upload(localFilePath,{
         resource_type:'auto',
-        
     })
     //dev temp start
 console.log("File uploaded on cloudinary ",response.url)
